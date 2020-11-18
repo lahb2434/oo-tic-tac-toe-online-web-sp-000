@@ -76,27 +76,21 @@ def won?
 end
   
 
-def full?
-  @board.none? {|i| i == " "}
-end
+  def full?
+    !@board.include?(' ')
+  end
 
 def draw?
-  if !won? && full?
-    return true
-  elsif!full? && won?
-    return false
-  else won?
-    return false
-  end
+  !won? && full? ? true : false
 end
 
 def over?
-  draw? || won? || full?
+  draw? || won? 
 end
 
 def winner
   if won?
-    return @board[won?[0]]
+    @board[won?[0]]
   end
 end
 
